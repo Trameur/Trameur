@@ -1,16 +1,34 @@
-## Hi there 👋
+# Hi there, I'm Trameurs! 👋
 
-<!--
-**Trameurs/Trameurs** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my GitHub profile! I'm passionate about coding and building great projects.
 
-Here are some ideas to get you started:
+## 📊 GitHub Stats
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<div align="center">
+  
+![Trameurs's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Trameurs&show_icons=true&theme=radical&hide_border=true&count_private=true)
+
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Trameurs&theme=radical&hide_border=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Trameurs&layout=compact&theme=radical&hide_border=true)
+
+</div>
+
+## 🚀 About Me
+
+- 🔭 I'm currently working on exciting projects
+- 🌱 I'm continuously learning and improving my skills
+- 💡 Open to collaborating on interesting projects
+- 📫 Feel free to reach out!
+
+## 📈 Profile Views
+
+![Profile Views](https://komarev.com/ghpvc/?username=Trameurs&color=blueviolet&style=flat-square&label=Profile+Views)
+
+---
+
+<div align="center">
+  
+⭐️ From [Trameurs](https://github.com/Trameurs)
+
+</div>
