@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Trameur
 
 Developer with a passion for graphics, game engines, and building useful tools.  
-I enjoy designing interactive projects, solving technical problems, and continuously learning new technologies.
+Background in computer science and image processing, with hands-on experience in production systems and long-term projects.
 
 ---
 
@@ -9,14 +9,16 @@ I enjoy designing interactive projects, solving technical problems, and continuo
 
 ### 🎨 DofusFashionistaVanced
 A modern revival of the original Fashionista tool, rebuilt and actively maintained.  
-Includes database updates, visual improvements, new filters, and feature expansions.
+Includes database updates, visual improvements, new filters, and feature expansions for a large active user base.
 
 ➡️ https://fashionistavanced.com  
 ➡️ GitHub: https://github.com/Trameurs/DofusFashionistaVanced
 
+---
+
 ### 🎮 Subject 264
 A first-person puzzle and exploration game released on Steam.  
-Built with Unreal Engine and C++, featuring VR-based level design and custom gameplay systems.
+Built with Unreal Engine and C++, featuring custom gameplay systems, VR-oriented level design, and technical exploration mechanics.
 
 ➡️ https://store.steampowered.com/app/540770/Subject_264/
 
@@ -24,23 +26,30 @@ Built with Unreal Engine and C++, featuring VR-based level design and custom gam
 
 ## 🧠 Skills & Interests
 
-- Graphic engines & shaders  
+- Graphics engines, shaders & rendering pipelines  
 - Game development (2D, 3D & VR)  
-- Technical support & debugging  
-- Web and software projects  
-- Data processing & visualization
+- Debugging & technical support in complex systems  
+- Web & backend tooling  
+- Data processing & visualization  
 
 ---
 
-## 🧰 Programming Languages & Tools
+## 🧰 Technical Stack
 
-`C / C++` · `C#` · `Python`  
-`TypeScript / JavaScript / Node.js`  
-`SQL` · `HTML / CSS`  
+**Languages:**  
+C / C++ · PHP · Python · Java · C# · Assembly (MIPS)
 
-`Unity` · `Unreal Engine` · `ShaderLab`  
-`Django` · `Vue.js`  
-`Git`
+**Web & Backend:**  
+JavaScript / TypeScript · Node.js · SQL · HTML / CSS · Django · Vue.js
+
+**Game & Real-Time:**  
+Unity · Unreal Engine · ShaderLab
+
+**Core CS:**  
+Algorithms · Low-level systems · Image processing · Performance optimization
+
+**Tools:**  
+Git · Linux · Databases · CI / automation · Server environments
 
 ---
 
@@ -62,7 +71,7 @@ Built with Unreal Engine and C++, featuring VR-based level design and custom gam
 
 - Building tools that real users rely on  
 - Game design, graphics and technical art  
-- Solving problems in complex systems  
+- Solving problems in complex, long-lived systems  
 - Creating things just for fun  
 
 ---
