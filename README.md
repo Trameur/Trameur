@@ -57,11 +57,11 @@ Git · Linux · Databases · CI / automation · Server environments
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Trameurs&show_icons=true&theme=radical&hide_border=true&count_private=true)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Trameur&show_icons=true&theme=radical&hide_border=true&count_private=true)
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Trameurs&theme=radical&hide_border=true&cache_seconds=3600)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Trameur&theme=radical&hide_border=true&cache_seconds=3600)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Trameurs&layout=compact&theme=radical&hide_border=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Trameur&layout=compact&theme=radical&hide_border=true)
 
 </div>
 
@@ -79,5 +79,5 @@ Git · Linux · Databases · CI / automation · Server environments
 ![Profile Views](https://komarev.com/ghpvc/?username=Trameurs&color=blueviolet&style=flat-square&label=Profile+Views)
 
 <div align="center">
-  ⭐️ From <a href="https://github.com/Trameurs">Trameur</a>
+  ⭐️ From <a href="https://github.com/Trameur">Trameur</a>
 </div>
