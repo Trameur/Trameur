@@ -7,11 +7,11 @@ Background in computer science and image processing, with hands-on experience in
 
 ## 🚀 Main Projects
 
-### 🎨 DofusFashionistaVanced
+### 🎨 Dofus Fashionista
 A modern revival of the original Fashionista tool, rebuilt and actively maintained.  
-Includes database updates, visual improvements, new filters, and feature expansions for a large active user base.
+Available for all Dofus versions with new features while keeping the core simple visual we all liked.
 
-➡️ https://fashionistavanced.com  
+➡️ https://dofusfashionista.gg 
 ➡️ GitHub: https://github.com/Trameurs/DofusFashionistaVanced
 
 ---
