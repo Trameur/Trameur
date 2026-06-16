@@ -3,6 +3,8 @@
 Developer with a passion for graphics, game engines, and building useful tools.  
 Background in computer science and image processing, with hands-on experience in production systems and long-term projects.
 
+🌐 **Portfolio & privacy policies:** [trameur.github.io/Trameur](https://trameur.github.io/Trameur/)
+
 ---
 
 ## 🚀 Main Projects
@@ -12,7 +14,7 @@ A modern revival of the original Fashionista tool, rebuilt and actively maintain
 Available for all Dofus versions with new features while keeping the core simple visual we all liked.
 
 ➡️ https://dofusfashionista.gg 
-➡️ GitHub: https://github.com/Trameurs/DofusFashionistaVanced
+➡️ GitHub: https://github.com/Trameur/DofusFashionistaVanced
 
 ---
 
@@ -76,7 +78,7 @@ Git · Linux · Databases · CI / automation · Server environments
 
 ---
 
-![Profile Views](https://komarev.com/ghpvc/?username=Trameurs&color=blueviolet&style=flat-square&label=Profile+Views)
+![Profile Views](https://komarev.com/ghpvc/?username=Trameur&color=blueviolet&style=flat-square&label=Profile+Views)
 
 <div align="center">
   ⭐️ From <a href="https://github.com/Trameur">Trameur</a>
