@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trameur — ThibaudM · Portfolio</title>
+  <meta name="description" content="Portfolio of ThibaudM (Trameur) — games, graphics engines and useful tools. Projects, links, visuals and privacy policies." />
+  <meta name="author" content="ThibaudM" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a06bff'/%3E%3Cstop offset='1' stop-color='%2319e3c7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trameur — ThibaudM · Portfolio" />
+  <meta property="og:description" content="Games, graphics engines and useful tools. Explore projects, links and privacy policies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/82444971?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span class="dot"></span> Trameur</a>
+      <nav class="nav-links">
+        <a class="nav-hide-sm" href="#projects">Projects</a>
+        <a class="nav-hide-sm" href="#skills">Skills</a>
+        <a class="nav-hide-sm" href="privacy/">Privacy</a>
+        <a class="nav-cta" data-meta="github" href="https://github.com/Trameur" target="_blank" rel="noopener">GitHub</a>
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="badge-row">
+            <span class="pill"><span class="ok"></span> Available for collaboration</span>
+            <span class="pill">📍 <span data-meta="location">France</span></span>
+          </div>
+          <h1>Hi, I'm <span class="grad-text" data-meta="name">ThibaudM</span>.</h1>
+          <p class="lead" data-meta="tagline">Developer crafting games, graphics engines &amp; useful tools.</p>
+          <p class="sub" data-meta="intro"></p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">View projects ↓</a>
+            <a class="btn btn-ghost" data-meta="github" href="https://github.com/Trameur" target="_blank" rel="noopener">GitHub profile</a>
+            <a class="btn btn-ghost" href="privacy/">Privacy policies</a>
+          </div>
+        </div>
+        <div class="avatar-card">
+          <span class="float-chip tl">🎮 Game dev</span>
+          <img data-meta="avatar" src="https://avatars.githubusercontent.com/u/82444971?v=4" alt="ThibaudM avatar" loading="eager" />
+          <span class="float-chip br">🎨 Graphics</span>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="stat-strip">
+          <div class="stat reveal"><b>7+</b><span>Projects shipped</span></div>
+          <div class="stat reveal"><b>1</b><span>Game on Steam</span></div>
+          <div class="stat reveal"><b>17★</b><span>On Fashionista</span></div>
+          <div class="stat reveal"><b>9</b><span>Repositories</span></div>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Unreal Engine</span><span>C++</span><span>Unity</span><span>Python</span><span>TypeScript</span><span>Django</span><span>Shaders</span><span>VR</span><span>Image processing</span>
+            <span>Unreal Engine</span><span>C++</span><span>Unity</span><span>Python</span><span>TypeScript</span><span>Django</span><span>Shaders</span><span>VR</span><span>Image processing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="wrap">
+        <span class="kicker">Selected work</span>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">Games, web tools, apps and bots. Each card links to the live project, source code and — where it applies — a privacy policy.</p>
+
+        <div class="filters" id="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="games">Games</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="apps">Apps</button>
+          <button class="chip" data-filter="bots">Bots</button>
+          <button class="chip" data-filter="tools">Tools</button>
+        </div>
+
+        <div class="grid" id="projects"></div>
+      </div>
+    </section>
+
+    <!-- More repos -->
+    <section style="padding-top:0;">
+      <div class="wrap">
+        <span class="kicker">Everything else</span>
+        <h2 class="section-title">More on GitHub</h2>
+        <p class="section-sub">The rest of the repositories — forks, the previous portfolio and the privacy policies source.</p>
+        <div class="more-grid" id="more-repos"></div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" style="background:var(--bg-soft); border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);">
+      <div class="wrap">
+        <span class="kicker">Toolbox</span>
+        <h2 class="section-title">Skills &amp; stack</h2>
+        <p class="section-sub">From low-level systems and real-time graphics to web backends and tooling.</p>
+        <div class="skills-grid" id="skills-list"></div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats">
+      <div class="wrap">
+        <span class="kicker">Activity</span>
+        <h2 class="section-title">GitHub stats</h2>
+        <p class="section-sub">Live snapshot of recent activity and most-used languages.</p>
+        <div class="stats-imgs">
+          <img class="reveal" loading="lazy" alt="GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Trameur&show_icons=true&theme=radical&hide_border=true&count_private=true&bg_color=15172a&title_color=a06bff&icon_color=19e3c7" />
+          <img class="reveal" loading="lazy" alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Trameur&layout=compact&theme=radical&hide_border=true&bg_color=15172a&title_color=a06bff" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <span class="kicker">Get in touch</span>
+          <h2>Let's build something.</h2>
+          <p>Questions about a project, a privacy policy, or a collaboration? I'm happy to chat.</p>
+          <div class="cta-row" style="justify-content:center;">
+            <a class="btn btn-primary" data-meta="email" href="mailto:trameurlabs@gmail.com">✉️ Email me</a>
+            <a class="btn btn-ghost" data-meta="github" href="https://github.com/Trameur" target="_blank" rel="noopener">Follow on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="muted">© <span id="year">2026</span> ThibaudM · Trameur — Built with care.</span>
+      <nav class="footer-links">
+        <a href="#projects">Projects</a>
+        <a href="privacy/">Privacy</a>
+        <a data-meta="github" href="https://github.com/Trameur" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/data/projects.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
