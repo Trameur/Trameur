@@ -33,12 +33,21 @@ window.PROJECTS = [
     slug: "subject-264",
     category: "games",
     featured: true,
-    emoji: "🧬",
-    blurb: "First-person puzzle & exploration game on Steam.",
+    emoji: "🥽",
+    meta: "VR Only · 2018 · Steam",
+    image: "assets/img/subject-264/shot-1.jpg",
+    blurb: "VR-only first-person horror escape game on Steam.",
     description:
-      "A first-person puzzle and exploration game built in Unreal Engine and C++. " +
-      "Custom gameplay systems, VR-oriented level design and technical exploration mechanics.",
-    tech: ["Unreal Engine", "C++", "VR", "Level Design"],
+      "A VR-only first-person horror escape game. You wake up in a blacked-out room full of " +
+      "creepy noises — to get out you must recover your past and overcome every obstacle in your path. " +
+      "Built in Unreal Engine with VR-oriented level and interaction design.",
+    tech: ["Unreal Engine", "C++", "VR Only", "Level Design"],
+    gallery: [
+      "assets/img/subject-264/shot-1.jpg",
+      "assets/img/subject-264/shot-2.jpg",
+      "assets/img/subject-264/shot-3.jpg",
+      "assets/img/subject-264/shot-4.jpg",
+    ],
     links: {
       steam: "https://store.steampowered.com/app/540770/Subject_264/",
       privacy: "privacy/subject-264.html",
@@ -51,6 +60,8 @@ window.PROJECTS = [
     featured: true,
     emoji: "🎨",
     stars: 17,
+    image: "assets/img/dofus-fashionista/banner.jpg",
+    meta: "Live · Web · Django",
     blurb: "A modern revival of the classic Dofus equipment advisor.",
     description:
       "A modern revival of the original Fashionista tool, rebuilt and actively maintained. " +

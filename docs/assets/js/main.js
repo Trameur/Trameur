@@ -52,16 +52,32 @@
     live: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>',
     steam: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-9.96 9.2l5.37 2.22a2.83 2.83 0 0 1 1.6-.5h.13l2.39-3.46v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.43v.1a2.84 2.84 0 0 1-5.6.68L2 14.32A10 10 0 1 0 12 2Zm-4.2 15.17.95.4a2.13 2.13 0 1 0 1.18-2.78l1 .42a1.57 1.57 0 1 1-1.18 2.9l-1.95-.94ZM18 8.9a2.52 2.52 0 1 0-2.52 2.52h.01A2.52 2.52 0 0 0 18 8.9Zm-4.4 0a1.9 1.9 0 1 1 1.9 1.9 1.9 1.9 0 0 1-1.9-1.9Z"/></svg>',
     privacy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>',
+    gallery: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="M21 15l-5-5L5 18"/></svg>',
   };
   var LINK_LABEL = { github: "Code", live: "Live site", steam: "Steam", privacy: "Privacy" };
   var LINK_ORDER = ["live", "steam", "github", "privacy"];
 
   /* ---- project cards ---------------------------------------------- */
+  var GALLERIES = {};
+
   function renderProjects() {
     var grid = document.getElementById("projects");
     if (!grid) return;
     PROJECTS.forEach(function (p) {
       var th = THEMES[p.category] || {};
+      var star = p.stars ? '<span class="star-tag">★ ' + p.stars + "</span>" : "";
+      var catTag = '<span class="cat-tag">' + esc(th.label || p.category) + "</span>";
+
+      var cover;
+      if (p.image) {
+        cover =
+          '<img class="cover-img" src="' + esc(p.image) + '" alt="' + esc(p.name) + ' preview" loading="lazy" />' +
+          '<span class="cover-shade"></span>' + catTag + star +
+          '<span class="emoji-badge">' + (p.emoji || "•") + "</span>";
+      } else {
+        cover = coverSVG(p) + catTag + star + '<span class="emoji">' + (p.emoji || "•") + "</span>";
+      }
+
       var links = "";
       LINK_ORDER.forEach(function (key) {
         if (!p.links || !p.links[key]) return;
@@ -71,16 +87,21 @@
           (key === "privacy" ? "" : ' target="_blank" rel="noopener"') +
           ">" + (ICONS[key] || "") + "<span>" + LINK_LABEL[key] + "</span></a>";
       });
+      if (p.gallery && p.gallery.length) {
+        GALLERIES[p.slug] = { title: p.name, shots: p.gallery };
+        links +=
+          '<button class="lnk gallery-btn" type="button" data-gallery="' + esc(p.slug) + '">' +
+          ICONS.gallery + "<span>Gallery</span></button>";
+      }
+
       var tech = (p.tech || []).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
-      var star = p.stars ? '<span class="star-tag">★ ' + p.stars + "</span>" : "";
+      var meta = p.meta ? '<div class="card-meta">' + esc(p.meta) + "</div>" : "";
+
       var card = el(
         '<article class="card reveal' + (p.featured ? " featured" : "") + '" data-cat="' + esc(p.category) + '">' +
-          '<div class="cover">' + coverSVG(p) +
-            '<span class="cat-tag">' + esc(th.label || p.category) + "</span>" + star +
-            '<span class="emoji">' + (p.emoji || "•") + "</span>" +
-          "</div>" +
+          '<div class="cover">' + cover + "</div>" +
           '<div class="card-body">' +
-            "<h3>" + esc(p.name) + "</h3>" +
+            "<h3>" + esc(p.name) + "</h3>" + meta +
             "<p>" + esc(p.description) + "</p>" +
             '<div class="tech">' + tech + "</div>" +
             '<div class="card-links">' + links + "</div>" +
@@ -88,6 +109,61 @@
         "</article>"
       );
       grid.appendChild(card);
+    });
+  }
+
+  /* ---- lightbox gallery ------------------------------------------- */
+  function setupLightbox() {
+    var grid = document.getElementById("projects");
+    if (!grid) return;
+    var box = el(
+      '<div class="lightbox" id="lightbox" aria-hidden="true">' +
+        '<button class="lb-close" type="button" aria-label="Close">✕</button>' +
+        '<button class="lb-nav lb-prev" type="button" aria-label="Previous">‹</button>' +
+        '<figure class="lb-stage"><img alt="" /><figcaption></figcaption></figure>' +
+        '<button class="lb-nav lb-next" type="button" aria-label="Next">›</button>' +
+      "</div>"
+    );
+    document.body.appendChild(box);
+    var imgEl = box.querySelector("img");
+    var capEl = box.querySelector("figcaption");
+    var state = { shots: [], i: 0, title: "" };
+
+    function show(i) {
+      var n = state.shots.length;
+      state.i = (i + n) % n;
+      imgEl.src = state.shots[state.i];
+      capEl.textContent = state.title + " — " + (state.i + 1) + " / " + n;
+    }
+    function open(slug) {
+      var g = GALLERIES[slug];
+      if (!g) return;
+      state.shots = g.shots; state.title = g.title;
+      show(0);
+      box.classList.add("open");
+      box.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function close() {
+      box.classList.remove("open");
+      box.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      imgEl.src = "";
+    }
+
+    grid.addEventListener("click", function (e) {
+      var btn = e.target.closest(".gallery-btn");
+      if (btn) { e.preventDefault(); open(btn.getAttribute("data-gallery")); }
+    });
+    box.querySelector(".lb-close").addEventListener("click", close);
+    box.querySelector(".lb-prev").addEventListener("click", function () { show(state.i - 1); });
+    box.querySelector(".lb-next").addEventListener("click", function () { show(state.i + 1); });
+    box.addEventListener("click", function (e) { if (e.target === box) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (!box.classList.contains("open")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") show(state.i - 1);
+      else if (e.key === "ArrowRight") show(state.i + 1);
     });
   }
 
@@ -186,6 +262,7 @@
     setupTheme();
     fillMeta();
     renderProjects();
+    setupLightbox();
     setupFilters();
     renderMore();
     renderSkills();
