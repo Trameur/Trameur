@@ -84,6 +84,7 @@
       var links =
         '<a class="lnk primary" href="' + detailHref + '">' + ICONS.details + "<span>Details</span></a>";
       LINK_ORDER.forEach(function (key) {
+        if (key === "privacy") return; // privacy stays on the detail page / footer only
         if (!p.links || !p.links[key]) return;
         var primary = key === "live" || key === "steam";
         links +=
