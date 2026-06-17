@@ -62,7 +62,7 @@
   var GALLERIES = {};
 
   function renderProjects() {
-    var grid = document.getElementById("projects");
+    var grid = document.getElementById("projects-grid");
     if (!grid) return;
     PROJECTS.forEach(function (p) {
       var th = THEMES[p.category] || {};
@@ -119,7 +119,7 @@
 
   /* ---- lightbox gallery ------------------------------------------- */
   function setupLightbox() {
-    var grid = document.getElementById("projects");
+    var grid = document.getElementById("projects-grid");
     if (!grid) return;
     var box = el(
       '<div class="lightbox" id="lightbox" aria-hidden="true">' +
