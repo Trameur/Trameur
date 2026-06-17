@@ -35,7 +35,15 @@ entry to the `PROJECTS` array:
   category: "web",            // games | web | apps | bots | tools
   featured: false,            // true = double-width card
   emoji: "🚀",
-  description: "What it does.",
+  meta: "Live · Web · 2026", // optional small line under the title
+  image: "assets/img/my-new-project/cover.jpg", // optional real cover image
+  description: "Short text shown on the card.",
+  long: "Longer text shown on the project detail page.", // optional
+  embed: '<iframe ...></iframe>', // optional (e.g. a Steam widget) on the detail page
+  gallery: [                  // optional screenshots -> lightbox + detail gallery
+    "assets/img/my-new-project/shot-1.jpg",
+    "assets/img/my-new-project/shot-2.jpg",
+  ],
   tech: ["TypeScript", "Node.js"],
   links: {
     live: "https://...",      // optional
@@ -45,7 +53,9 @@ entry to the `PROJECTS` array:
 }
 ```
 
-Cover art is generated automatically from the category and slug — no image files needed.
+- If `image` is omitted, cover art is **generated automatically** from the category and slug — no image files needed.
+- Every project automatically gets a detail page at `project.html?slug=<slug>` (rendered by `assets/js/detail.js`). Cards link to it.
+- Put images under `docs/assets/img/<slug>/` and keep them optimized (resized + compressed).
 
 ## Add a privacy policy
 

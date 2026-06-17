@@ -41,6 +41,16 @@ window.PROJECTS = [
       "A VR-only first-person horror escape game. You wake up in a blacked-out room full of " +
       "creepy noises — to get out you must recover your past and overcome every obstacle in your path. " +
       "Built in Unreal Engine with VR-oriented level and interaction design.",
+    long:
+      "Subject 264 is an exploration and puzzle game built from the ground up for Virtual Reality. " +
+      "It fully uses roomscale with motion controllers, with movement by pad or teleportation. " +
+      "You wake up in a blacked-out room full of creepy noises — and the place doesn't want to let you " +
+      "leave. To escape you must remember your past and overcome every obstacle in your path: crouch to " +
+      "look under objects, open drawers, grab items off the floor and solve a variety of puzzles. " +
+      "The result is a tense, atmospheric experience with a heavy focus on hand-crafted VR interaction.",
+    embed:
+      '<iframe class="store-embed" src="https://store.steampowered.com/widget/540770/" ' +
+      'frameborder="0" width="100%" height="190" title="Subject 264 on Steam"></iframe>',
     tech: ["Unreal Engine", "C++", "VR Only", "Level Design"],
     gallery: [
       "assets/img/subject-264/shot-1.jpg",
@@ -67,6 +77,12 @@ window.PROJECTS = [
       "A modern revival of the original Fashionista tool, rebuilt and actively maintained. " +
       "Available for all Dofus versions with new features while keeping the simple visual " +
       "core players loved.",
+    long:
+      "Dofus Fashionista is an equipment advisor for the game Dofus: you tell it what you want from a " +
+      "build and it finds the best gear combination for your character. This is a modern revival of the " +
+      "original tool by PiwiSlayer — rebuilt from the ground up, actively maintained and kept up to date " +
+      "across all Dofus versions. The goal was to preserve the simple, visual experience players loved " +
+      "while modernizing the stack, fixing long-standing issues and adding new features.",
     tech: ["Python", "Django", "JavaScript", "SQL"],
     links: {
       live: "https://dofusfashionista.gg",
@@ -83,6 +99,11 @@ window.PROJECTS = [
     description:
       "Track daily challenges, progress and streaks on your phone. Fully offline by design — " +
       "no account, no analytics, no tracking. Your data never leaves your device.",
+    long:
+      "365 Challenge is a habit and challenge tracker for mobile, built offline-first. Create challenges, " +
+      "follow your daily progress and keep your streaks going — with an optional local daily reminder. " +
+      "There is no account and no server: everything is stored on the device, and an \"Export my data\" " +
+      "feature lets you take your data with you at any time. Privacy is a feature, not an afterthought.",
     tech: ["React Native", "TypeScript", "Mobile", "Offline-first"],
     links: {
       privacy: "privacy/365-challenge.html",
@@ -97,6 +118,11 @@ window.PROJECTS = [
     description:
       "A feature-rich Discord bot themed around Bleach. Server utilities, commands and " +
       "automation written in TypeScript on top of Node.js.",
+    long:
+      "BleachBot is a Discord bot themed around the Bleach universe. It brings commands, server utilities " +
+      "and automation to a guild, with per-server configuration so each community can tune what it does. " +
+      "Written in TypeScript on top of Node.js and Discord.js, with a focus on clean command handling and " +
+      "only storing the minimum data needed to work.",
     tech: ["TypeScript", "Node.js", "Discord.js"],
     links: {
       github: "https://github.com/Trameur/BleachBot",
@@ -112,6 +138,10 @@ window.PROJECTS = [
     description:
       "An idle, offline RPG built in Unity. Incremental progression and combat systems, " +
       "with custom shaders and a clean offline gameplay loop.",
+    long:
+      "Sufod is an idle, offline RPG built in Unity. It explores incremental progression and combat " +
+      "systems that keep advancing even when you're away, wrapped in custom shaders and a clean, " +
+      "self-contained gameplay loop that needs no connection to play.",
     tech: ["Unity", "C#", "ShaderLab"],
     links: {
       github: "https://github.com/Trameur/Sufod-idle-offline-RPG",
@@ -126,6 +156,10 @@ window.PROJECTS = [
     description:
       "Real-time music visuals — generative, audio-reactive graphics built in Python. " +
       "An experiment in turning sound into motion.",
+    long:
+      "Tramacid Visuals is an experiment in turning sound into motion: real-time, audio-reactive " +
+      "graphics generated in Python. It listens to the music and drives generative visuals from it — " +
+      "a playground for ideas at the intersection of audio analysis and creative coding.",
     tech: ["Python", "Audio", "Generative"],
     links: {
       github: "https://github.com/Trameur/Tramacid-visuals",

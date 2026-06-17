@@ -53,6 +53,7 @@
     steam: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-9.96 9.2l5.37 2.22a2.83 2.83 0 0 1 1.6-.5h.13l2.39-3.46v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.43v.1a2.84 2.84 0 0 1-5.6.68L2 14.32A10 10 0 1 0 12 2Zm-4.2 15.17.95.4a2.13 2.13 0 1 0 1.18-2.78l1 .42a1.57 1.57 0 1 1-1.18 2.9l-1.95-.94ZM18 8.9a2.52 2.52 0 1 0-2.52 2.52h.01A2.52 2.52 0 0 0 18 8.9Zm-4.4 0a1.9 1.9 0 1 1 1.9 1.9 1.9 1.9 0 0 1-1.9-1.9Z"/></svg>',
     privacy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>',
     gallery: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="M21 15l-5-5L5 18"/></svg>',
+    details: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   };
   var LINK_LABEL = { github: "Code", live: "Live site", steam: "Steam", privacy: "Privacy" };
   var LINK_ORDER = ["live", "steam", "github", "privacy"];
@@ -68,6 +69,8 @@
       var star = p.stars ? '<span class="star-tag">★ ' + p.stars + "</span>" : "";
       var catTag = '<span class="cat-tag">' + esc(th.label || p.category) + "</span>";
 
+      var detailHref = "project.html?slug=" + encodeURIComponent(p.slug);
+
       var cover;
       if (p.image) {
         cover =
@@ -78,7 +81,8 @@
         cover = coverSVG(p) + catTag + star + '<span class="emoji">' + (p.emoji || "•") + "</span>";
       }
 
-      var links = "";
+      var links =
+        '<a class="lnk primary" href="' + detailHref + '">' + ICONS.details + "<span>Details</span></a>";
       LINK_ORDER.forEach(function (key) {
         if (!p.links || !p.links[key]) return;
         var primary = key === "live" || key === "steam";
@@ -99,9 +103,9 @@
 
       var card = el(
         '<article class="card reveal' + (p.featured ? " featured" : "") + '" data-cat="' + esc(p.category) + '">' +
-          '<div class="cover">' + cover + "</div>" +
+          '<a class="cover" href="' + detailHref + '" aria-label="' + esc(p.name) + ' — view details">' + cover + "</a>" +
           '<div class="card-body">' +
-            "<h3>" + esc(p.name) + "</h3>" + meta +
+            '<h3><a href="' + detailHref + '">' + esc(p.name) + "</a></h3>" + meta +
             "<p>" + esc(p.description) + "</p>" +
             '<div class="tech">' + tech + "</div>" +
             '<div class="card-links">' + links + "</div>" +
