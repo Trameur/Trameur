@@ -165,39 +165,6 @@ window.PROJECTS = [
       github: "https://github.com/Trameur/Tramacid-visuals",
     },
   },
-  {
-    name: "ERP",
-    slug: "erp",
-    category: "tools",
-    emoji: "🖥️",
-    blurb: "A C++ systems & low-level programming project.",
-    description:
-      "A C++ project exploring systems and low-level programming, with an emphasis on " +
-      "structure and performance.",
-    tech: ["C++"],
-    links: {
-      github: "https://github.com/Trameur/erp",
-    },
-  },
-];
-
-/* Smaller repositories surfaced as compact links ("everything on GitHub"). */
-window.MORE_REPOS = [
-  {
-    name: "Dofus Fashionista (original)",
-    note: "The original PiwiSlayer project — basis for the Vanced revival.",
-    url: "https://github.com/Trameur/DofusFashionista",
-  },
-  {
-    name: "Privacy",
-    note: "Privacy policies for Trameur apps.",
-    url: "https://github.com/Trameur/Privacy",
-  },
-  {
-    name: "Trameurs.github.io",
-    note: "Previous Jekyll portfolio.",
-    url: "https://github.com/Trameur/Trameurs.github.io",
-  },
 ];
 
 window.SKILLS = [

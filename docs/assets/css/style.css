@@ -402,20 +402,32 @@ img { max-width: 100%; }
 .lnk.primary { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
 .lnk svg { width: 15px; height: 15px; }
 
-/* More repos ------------------------------------------------------- */
-.more-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-.more-item {
-  display: block;
+/* GitHub banner ---------------------------------------------------- */
+.gh-banner {
+  display: flex; align-items: center; gap: 18px;
   border: 1px solid var(--border);
-  background: var(--card);
-  border-radius: 12px;
-  padding: 16px 18px;
+  background: linear-gradient(120deg, var(--card), var(--bg-soft));
+  border-radius: 16px;
+  padding: 20px 24px;
   color: var(--text);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.more-item:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-3px); }
-.more-item b { display: flex; align-items: center; gap: 8px; font-size: 15px; }
-.more-item span { display: block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+.gh-banner:hover {
+  text-decoration: none;
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.gh-ic { flex: none; width: 46px; height: 46px; display: grid; place-items: center; color: var(--text); }
+.gh-ic svg { width: 34px; height: 34px; }
+.gh-text { flex: 1; min-width: 0; }
+.gh-text b { display: block; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.gh-text > span { color: var(--muted); font-size: 14.5px; }
+.gh-go { flex: none; font-weight: 800; color: var(--accent); white-space: nowrap; }
+@media (max-width: 560px) {
+  .gh-banner { flex-wrap: wrap; gap: 12px; }
+  .gh-go { width: 100%; }
+}
 
 /* Skills ----------------------------------------------------------- */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }

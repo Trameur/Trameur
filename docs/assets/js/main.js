@@ -6,7 +6,6 @@
 
   var THEMES = window.CATEGORY_THEME || {};
   var PROJECTS = window.PROJECTS || [];
-  var MORE = window.MORE_REPOS || [];
   var SKILLS = window.SKILLS || [];
   var META = window.META || {};
 
@@ -189,19 +188,7 @@
     });
   }
 
-  /* ---- more repos & skills ---------------------------------------- */
-  function renderMore() {
-    var box = document.getElementById("more-repos");
-    if (!box) return;
-    MORE.forEach(function (r) {
-      box.appendChild(el(
-        '<a class="more-item reveal" href="' + esc(r.url) + '" target="_blank" rel="noopener">' +
-          "<b>" + ICONS.github + esc(r.name) + "</b>" +
-          "<span>" + esc(r.note) + "</span>" +
-        "</a>"
-      ));
-    });
-  }
+  /* ---- skills ----------------------------------------------------- */
   function renderSkills() {
     var box = document.getElementById("skills-list");
     if (!box) return;
@@ -269,7 +256,6 @@
     renderProjects();
     setupLightbox();
     setupFilters();
-    renderMore();
     renderSkills();
     setupReveal();
   });
