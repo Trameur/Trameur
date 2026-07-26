@@ -1,72 +1,95 @@
-# Trameur — Portfolio site
+# Trameur — portfolio
 
-The source of the portfolio website served with **GitHub Pages** from this `docs/` folder.
+Source of the portfolio website, served with **GitHub Pages** from this `docs/` folder.
 
-🌐 **Live (once Pages is enabled):** https://trameur.github.io/Trameur/
+🌐 https://trameur.github.io/Trameur/
+
+## The idea
+
+*Trameur* means the one who lays the weft — and in imaging, **tramage** is halftone
+screening (dithering). The site is built on that pun: every cover image is run through a
+real **Bayer 8×8 ordered dither** in canvas and resolves to the photo on hover, the hero
+background is a live **moiré** of two rotating line gratings, and projects with no
+screenshot get their own moiré generated from their slug. Palette is risograph
+(ink / bone paper / acid green / fluo pink), type is Anton + JetBrains Mono, and nothing
+on the page has a rounded corner.
+
+Press **D** anywhere to screen the whole page.
 
 ## Structure
 
 ```
 docs/
-├── index.html            # Home — hero, projects grid, skills, stats, contact
-├── 404.html              # Custom not-found page
-├── privacy/              # Privacy policy hub + one page per app
-│   ├── index.html
-│   ├── 365-challenge.html
-│   ├── dofus-fashionista.html
-│   ├── bleachbot.html
-│   └── subject-264.html
+├── index.html            # Home — 00 Trame, 01 Travaux, 02 Atelier, 03 Signal
+├── project.html          # Project sheet, filled from ?slug=
+├── 404.html              # Self-contained (served from any path)
+├── privacy/              # Policy hub + one page per app
 └── assets/
-    ├── css/style.css     # Portfolio styles (dark/light theme)
-    ├── css/privacy.css   # Privacy pages styles
-    ├── js/main.js        # Renders cards, filters, theme toggle
+    ├── css/style.css     # Design system (chambre noire / papier)
+    ├── css/privacy.css   # Policy pages, same tokens
+    ├── js/trame.js       # ← the engine: dither, moiré, hero raster, theme, [D]
+    ├── js/main.js        # Home rendering
+    ├── js/detail.js      # Project sheet rendering
     └── data/projects.js  # ← EDIT THIS to add/update projects
 ```
 
+No build step, no dependencies. Two webfonts from Google Fonts, nothing else external.
+
 ## Add or edit a project
 
-Everything is data-driven. Open [`assets/data/projects.js`](assets/data/projects.js) and add an
-entry to the `PROJECTS` array:
+Everything is data-driven. Open [`assets/data/projects.js`](assets/data/projects.js) and add
+an entry to `PROJECTS`:
 
 ```js
 {
   name: "My New Project",
   slug: "my-new-project",
-  category: "web",            // games | web | apps | bots | tools
-  featured: false,            // true = double-width card
-  emoji: "🚀",
-  meta: "Live · Web · 2026", // optional small line under the title
-  image: "assets/img/my-new-project/cover.jpg", // optional real cover image
+  category: "web",          // games | web | apps | bots | tools -> sets the duotone
+  featured: false,          // true = full-width band (they alternate sides)
+  meta: "Live · Django · 2026",     // small uppercase line under the title
+  image: "assets/img/my-new-project/cover.jpg",  // optional
+  blurb: "One line, used as the lead on the project sheet.",
   description: "Short text shown on the card.",
-  long: "Longer text shown on the project detail page.", // optional
-  embed: '<iframe ...></iframe>', // optional (e.g. a Steam widget) on the detail page
-  gallery: [                  // optional screenshots -> lightbox + detail gallery
-    "assets/img/my-new-project/shot-1.jpg",
-    "assets/img/my-new-project/shot-2.jpg",
-  ],
+  note: "The human aside — the detail you'd say out loud.",  // optional
+  long: "Longer text for the project sheet.",                // optional
+  embed: '<iframe ...></iframe>',                            // optional (Steam widget)
+  gallery: ["assets/img/my-new-project/shot-1.jpg"],         // optional -> lightbox
   tech: ["TypeScript", "Node.js"],
+  stars: 17,                                                 // optional
   links: {
-    live: "https://...",      // optional
-    github: "https://...",    // optional
-    privacy: "privacy/my-new-project.html", // optional
+    live: "https://...",
+    github: "https://...",
+    steam: "https://...",
+    privacy: "privacy/my-new-project.html",
   },
 }
 ```
 
-- If `image` is omitted, cover art is **generated automatically** from the category and slug — no image files needed.
-- Every project automatically gets a detail page at `project.html?slug=<slug>` (rendered by `assets/js/detail.js`). Cards link to it.
-- Put images under `docs/assets/img/<slug>/` and keep them optimized (resized + compressed).
+- **No `image`?** The cover is a moiré generated from the slug — deterministic, so a project
+  always gets the same one. No image files needed.
+- Every project automatically gets a sheet at `project.html?slug=<slug>`.
+- Put images under `docs/assets/img/<slug>/`, resized and compressed. They are dithered
+  client-side, so anything above ~1400px wide is wasted bytes.
+- `note` is where the personality goes. Keep it to one sentence and make it true.
+
+Numbers in the hero index live in `INDEX_STATS`, and the categories' duotones in
+`CATEGORY_THEME`.
 
 ## Add a privacy policy
 
-1. Copy any file in `privacy/` (e.g. `365-challenge.html`) to `privacy/<slug>.html`.
-2. Edit the title, emoji and text.
-3. Link it from the project (the `privacy` link above) and add a card in `privacy/index.html`.
+1. Copy any file in `privacy/` to `privacy/<slug>.html`.
+2. Edit the title and text (keep the inline theme script in `<head>`).
+3. Link it from the project (`links.privacy`) and add a card in `privacy/index.html`.
 
-## Enable GitHub Pages
+⚠️ These files contain UTF-8 accents. Edit them with a UTF-8-aware editor — a naive
+PowerShell `Get-Content`/`Set-Content` round-trip will mangle every `—` and `é`.
 
-Repo **Settings → Pages → Build and deployment**:
-- **Source:** Deploy from a branch
-- **Branch:** `main` · **Folder:** `/docs` → Save
+## Local preview
 
-The site goes live at `https://trameur.github.io/Trameur/` within a minute or two.
+```bash
+python -m http.server 4173 --directory docs
+```
+
+## GitHub Pages
+
+Repo **Settings → Pages**: source *Deploy from a branch*, branch `main`, folder `/docs`.
